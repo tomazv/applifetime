@@ -23,7 +23,7 @@ namespace AppLifetime
 
             app.Run(async (context) =>
             {
-                await context.Response.WriteAsync("Hello World!");
+                await context.Response.WriteAsync(string.Join("\n", Log.ReturnLast(100)));
             });
         }
     }
