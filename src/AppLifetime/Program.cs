@@ -18,13 +18,13 @@ namespace AppLifetime
                 .Build();
 
             IApplicationLifetime appLifetime = (IApplicationLifetime)host.Services.GetService(typeof(IApplicationLifetime));
-            appLifetime.ApplicationStarted.Register(() => Log.Info("Application started"));
-            appLifetime.ApplicationStopping.Register(() => Log.Info("Application stopping"));
-            appLifetime.ApplicationStopped.Register(() => Log.Info("Application stopped"));
+            appLifetime.ApplicationStarted.Register(() => AppLog.Info("Application started"));
+            appLifetime.ApplicationStopping.Register(() => AppLog.Info("Application stopping"));
+            appLifetime.ApplicationStopped.Register(() => AppLog.Info("Application stopped"));
 
-            Log.Info("Before run");
+            AppLog.Info("Before run");
             host.Run();
-            Log.Info("After run");
+            AppLog.Info("After run");
         }
     }
 }
